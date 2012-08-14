@@ -1,1 +1,222 @@
-Yo!
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Suzana Setiawan</title>
+		<meta name="description" content="Suzana's bc">
+		<meta name="author" content="Ivana Setiawan">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" href="public/css/styling.css">
+
+		<link rel="shortcut icon" href="public/images/favicon.ico" type="image/ico">
+
+		<link href='http://fonts.googleapis.com/css?family=Enriqueta:400,700|Coustard:900' rel='stylesheet' type='text/css'>
+
+		<link rel="shortcut icon" href="public/images/favicon.ico" type="image/ico">
+
+		<script src="public/js/modernizr.js"></script>
+
+	</head>
+
+	<body>
+		<header class="wrap">
+			<h1>Sassify!</h1>
+			<h2>Syntactically Awesome Stylesheets on the fly...</h2>
+		</header>
+
+		<div class="wrap intro">
+			<p class="with-letter"><span class="letter">M</span>ost frontenders heard bout Sass; some got hooked, many chose Less, and majority stucks with overload informations about how awesome it is, but have no clue in how to start using it on their projects.</p>
+
+			<p>The main goal of this article is to guide frontenders who are interested in using Sass NOW. Yes, you will have a project running Sass within the next 10 to 15 minutes.</p>
+
+			<p>Excited? on fire?! Awesome! Read on!</p>
+
+			<p class="note">Please keep in mind that this article only covers real basic of Sass &amp; Compass for Sass newbies. I am planning on writing more about how to use them in the future, but not in this version.</p>
+
+		</div>
+
+		<section class="wrap content">
+			<h2>~ Why Sass? ~</h2>
+			<p>There are a lot of discussions going on about Sass vs. Less. Most developers I met are on Less' side and
+			I would like to persuade them to take a peek a bit on Sass; two of the main reasons are because of <a href="http://compass-style.org/" target="_blank">Compass</a> &amp; also... Sass is more logical.</p>
+
+			<p>Wait... did I hear "Why?!"</p>
+
+			<p>So here is the truth; indeed Less has what Sass has(mixin, extend, you-name-it), but the way Less work is different than Sass.
+			I am not planning on explaining the difference here, since there are many other experienced developer out there blogging about this topic.
+			One of the best explanations I really like is from <a href="http://css-tricks.com/sass-vs-less/" target="_blank">Chris Coyier</a>. Take a good read on it, seriously.</p>
+
+			<h2>~ Step by Step ~</h2>
+			<p>So you are convinced and want to try Sass now. I assure you this will be super easy and quick, let's do it now.</p>
+
+			<ol class="step-by-step">
+				<li>
+					<h3>Step 1</h3>
+					<p>First things first, let's decide on the compiler. There are several options, such as:</p>
+
+					<ul>
+						<li><a href="http://compass-style.org/" target="_blank">Compass</a> compiler</li>
+						<li><a href="http://mhs.github.com/scout-app/" target="_blank">Scout App</a>  compiler</li>
+						<li><a href="http://incident57.com/codekit/" target="_blank">CodeKit</a> - an amazing tool for developers. It's not only compiling Sass &amp; Compass but also Haml, Less, Stylus, Jade, &amp; CoffeeScript. They also have a livereload feature, super handy. Def recommended!($25)</li>
+						<li>And many other sizzle out there (that I haven't tried)</li>
+					</ul>
+
+					<p class="note">* I personally use Compass because it is easier for me and I don't have to install any app on my mac; however I would recommend Scout for people who prefer easy UI(Sass &amp; Compass) - and CodeKit for people who are not only using Sass &amp; Compass but also Haml, CoffeeScript, etc.*</p>
+
+					<p>Using Scout App is super easy, all you have to do is go to their website and download the app. Everything is straight forward: add desired projects on the left(1), configure it on the right(2), and click "Log" on top right to see console messages(3).</p>
+
+					<figure>
+						<img src="public/images/scoutapp.jpg" alt="Scout App">
+						<figcaption>ScoutApp image: see image 1, 2, &amp; 3</figcaption>
+					</figure>
+
+					<p>Using Compass is slightly different, but equally easy. All you have to do is adding config.rb on your project folder. See below:</p>
+
+					<figure class="config">
+						<img src="public/images/config.jpg" alt="config.rb">
+						<figcaption>Project structure for Sassify!</figcaption>
+					</figure>
+
+					<p>Then paste the code below on config.rb(please adjust accordingly to your project structure):</p>
+					<code>
+						<span class="comment"># Require any additional compass plugins here.</span>
+						<span class="comment"># Set this to the root of your project when deployed:</span>
+						http_path = "/"<br>
+						<span class="comment"># Path for images</span>
+						http_images_path = "/images/"<br>
+						http_generated_images_path = "/images/"<br>
+						<br>
+						css_dir = "public/css"<br>
+						sass_dir = "sass"<br>
+						images_dir = "public/images"<br>
+						javascripts_dir = "public/js"<br>
+						<br>
+						output_style = :compressed<br>
+						<br>
+						<span class="comment"># To enable relative paths to assets via compass helper functions. Uncomment:</span>
+						<span class="comment"># relative_assets = true</span>
+						<span class="comment"># To disable debugging comments that display the original location of your selectors. Uncomment:</span>
+						<span class="comment"># line_comments = false</span>
+						<span class="comment"># If you prefer the indented syntax, you might want to regenerate this</span>
+						<span class="comment"># project again passing --syntax sass, or you can uncomment this:</span>
+						<span class="comment"># preferred_syntax = :sass</span>
+						<span class="comment"># and then run:</span>
+						<span class="comment"># sass-convert -R --from scss --to sass sass scss && rm -rf sass && mv scss sass</span>
+					</code>
+				</li>
+
+				<li>
+					<h3>Step 2</h3>
+					<p>After adding config.rb on your project, go to Terminal => project folder => type "compass watch". BAM! Compass is compiling your Sass files.</p>
+					<p class="note">* Make sure you already created a sass file inside your sass folder, otherwise you will see error message on terminal when you type "compass watch" *</p>
+					<figure class="compasswatch">
+						<img src="public/images/compasswatch.jpg" alt="Compass">
+						<figcaption>Example, using my Sassify! project</figcaption>
+					</figure>
+
+					<p>Now, let's setup basic Sass for a project.</p>
+					<code>
+						<span class="comment">
+							// Importing Compass
+						</span>
+						@import "compass"
+						<span class="comment">/* Reset is optional */</span>
+						@import "compass/reset"
+						<br><br>
+
+						<span class="comment">
+							// Mixins are defined with the @mixin(also "=") directive. It’s followed by the name of the mixin and optionally the arguments, and a block containing the contents of the mixin. For better explanation, please go <a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#defining_a_mixin" target="_blank">here</a>.
+						</span>
+						=retina-image($image, $ext, $resolution, $properties: false)<br>
+							<span class="indent-1">background: url(../images/#{$image}.#{$ext}) $properties</span>
+							<span class="indent-1">@media only screen and (-webkit-device-pixel-ratio: 2)</span>
+								<span class="indent-2">background: url(../images/#{$image}_2x.#{$ext}) $properties</span>
+								<span class="indent-2">background-size: $resolution</span>
+						<br>
+
+						<span class="comment">
+							// Fleximage is for fluid image
+						</span>
+						=fleximage<br>
+							<span class="indent-1">max-width: 100%</span>
+							<span class="indent-1">width: 100%</span>
+							<span class="indent-1">height: auto</span>
+						<br>
+
+						<span class="comment">
+							// Define variables
+						</span>
+						$fontFamily: 'Enriqueta', Georgia, serif<br>
+						$titleFont: 'Coustard', cursive, Georgia, serif<br>
+						$fontColor: #111<br>
+						$altColor: #0070b8<br>
+						$alertColor: #c30c30<br>
+						<br>
+
+						<span class="comment">
+							// Text selection styling
+						</span>
+						body<br>
+							<span class="indent-1">font-family: $fontFamily</span>
+							<span class="comment indent-1">/* The font-size is now 0.625 * 16px = 10px. */</span>
+							<span class="indent-1">font-size: 0.625em</span>
+							<span class="comment indent-1">/* The leading is now 25 pixels. */</span>
+							<span class="indent-1">line-height: 2.5em</span>
+							<span class="indent-1">color: $fontColor</span>
+					</code>
+				</li>
+
+				<li>
+					<h3>Step 3</h3>
+					<p>Congratulation! now you are officially using Sass!
+					<span class="note">* imagine me patting each one of you on the back *</span></p>
+					<p>The wisest thing to do now is to go <a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html" target="_blank">here</a> and dive into Sass a bit. I would suggest to start reading about <a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#defining_a_mixin" target="_blank">@mixin</a>, <a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#extend" target="_blank">@extend</a>, <a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#media" target="_blank">@media</a>, and <a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#control_directives" target="_blank">Control Directives</a>.</p>
+					<p class="note">* Control Directives are really amazing! See figure below as an example. *</p>
+
+					<figure class="each">
+						<img src="public/images/each.jpg" alt="Control Directive - @each">
+						<figcaption>Refactoring old project to Sass</figcaption>
+					</figure>
+
+					<p>OK, now the exciting news - one of the major reasons why you should pick Sass: <a href="http://compass-style.org/" target="_blank">Compass</a>!</p>
+				</li>
+			</ol>
+
+			<h2>~ Compass ~</h2>
+			<p>Compass provides cross browser CSS3 mixins, basic mixins for common typography patterns, and basic mixins for common styling patterns. These make things super easy for frontender, here is a simple example below:</p>
+
+			<code>
+				.radius-box<br>
+				<span class="indent-1">display: inline-block</span>
+				<span class="indent-1">padding: 10px</span>
+				<span class="indent-1">color: white</span>
+				<span class="indent-1">background: black</span>
+				<span class="comment indent-1">
+					// See explanation <a href="http://compass-style.org/examples/compass/css3/border_radius/" target="_blank">here</a>
+				</span>
+				<span class="indent-1">+border-radius(5px)</span>
+				<span class="comment indent-1">
+					// See explanation <a href="http://compass-style.org/examples/compass/css3/gradient/" target="_blank">here</a>
+				</span>
+				<span class="indent-1">+background-image(linear-gradient(white, #cccccc 30%, #bbbbbb 70%, #aaaaaa))</span>
+				<br>
+				.intro-text
+				<span class="indent-1">font-family: $fontFamily</span>
+				<span class="indent-1">font-size: 2em</span>
+				<span class="comment indent-1">
+					// See explanation <a href="http://compass-style.org/examples/compass/css3/text_shadow/" target="_blank">here</a>
+				</span>
+				<span class="indent-1">+text-shadow(#rgba(0, 0, 0, 0.5) 0 1px 1px)</span>
+			</code>
+
+			<p>Spiffy ey? bet you're amazed and excited to start playing around with Sass and Compass now! Enjoy it! and if you have any comments regarding this simple article, please do not hesitate to mail me <a href="mailto:ivana.setiawan@gmail.com" target="_blank">here</a>.</p>
+		</section>
+
+		<footer class="wrap">
+			<p>Article passionately written by <a href="http://ivanasetiawan.com" target="_blank">Ivana. Setiawan</a>.</p>
+			<p>Please excuse me for typo and/or grammar mistakes.<br>It's 02:22 a.m. in Amsterdam and I miss my bed dearly...</p>
+		</footer>
+	</body>
+</html>
