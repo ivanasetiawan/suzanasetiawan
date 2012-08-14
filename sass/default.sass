@@ -21,20 +21,25 @@
   width: 100%
   height: auto
 
+@mixin italicFont
+  font-family: Georgia, serif
+  font-style: italic
+
 // Variable
-$fontFamily: 'Simonetta', cursive, Georgia, serif
-$swirlFont: 'Cookie', cursive
-$boldFont: 'Averia Serif Libre', cursive
-$fontColor: #111
-$alertColor: #c30c30
+$fontFamily: Georgia, serif
+$sansFont: Antic, arial, helvetica, sans-serif
+$swirlFont: 'Dr Sugiyama', cursive
+
+$altColor: #3097e7
+$fontColor: #333
 
 ::-moz-selection
-  background: $alertColor
+  background: $fontColor
   color: #fff
   text-shadow: none
 
 ::selection
-  background: $alertColor
+  background: $fontColor
   color: #fff
   text-shadow: none
 
@@ -48,148 +53,88 @@ body
   +retina-image("bg", "jpg", 50px 50px, repeat)
 
 a
-  color: $alertColor
+  color: $fontColor
   text-decoration: none
 
   &:hover
-    color: #0070b8
-
-header
-  padding-top: 330px
-  margin-bottom: 30px
-  +retina-image("chameleon", "jpg", 50%, center 20px no-repeat)
-  background: url(../images/chameleon.jpg) center 20px no-repeat
-
-  h1
-    width: 440px
-    margin: 0 auto
-    padding: 30px 0
-    position: relative
-    font-size: 15em
-    font-family: $swirlFont
-    line-height: 1
-    color: $alertColor
-    +text-shadow(#fff 1px 1px 1px)
-
-  span
-    display: block
-    position: absolute
-    color: #3b3b3b
-
-  .sub
-    top: 0
-    font-family: $boldFont
-    font-size: 0.1667em
-    font-weight: bold
-
-  .by
-    right: 0
-    font-family: $fontFamily
-    font-size: 0.12em
+    color: $altColor
 
 .wrap
-  max-width: 1000px
-  margin: 0 auto
+  width: 600px
+  height: 278px
+  top: 50%
+  left: 50%
+  padding: 30px
+  margin-top: -169px
+  margin-left: -330px
+  position: absolute
+  background: rgba(255, 255, 255, 0.6)
+  +border-radius(10px)
+  +box-shadow(rgba(0, 0, 0, 0.15) 0 0 8px)
 
-.text
-  font-size: 1.9em
-  line-height: 1.6em
+header
+  text-align: center
 
-  &.intro
-    font-size: 2.1em
+  h1
+    margin: 10px 0 50px
+    font-family: $swirlFont
+    font-size: 10em
+    line-height: 1
+    +text-shadow(rgba(255, 255, 255, 0.7) 2px 2px 0, rgba(0, 0, 0, 0.2) 3px 3px 3px)
 
   h2
-    margin: 40px 0 25px
-    text-align: center
-    font-size: 1.5789em
-    font-weight: 700
-    +text-shadow(#fff 1px 1px 1px)
+    margin-top: -25px
+    font-family: $sansFont
+    font-size: 2em
+    letter-spacing: 0.1em
+    text-transform: uppercase
+    opacity: 0.6
+    +text-shadow(rgba(0, 0, 0, 0.2) 2px 2px 2px)
 
-  p
-    margin: 0 80px 40px
+#contact
+  margin-top: 30px
+  text-align: center
 
-.figures
-  margin: 50px 0
-  overflow: hidden
+  ul
+    display: inline-block
+    padding: 20px 0
+    border-top: solid 1px rgba(0, 0, 0, 0.1)
+    border-bottom: solid 1px rgba(0, 0, 0, 0.1)
 
-  figure
+  li
     float: left
-    margin-left: 20px
+    padding-left: 20px
+    font-size: 1.6em
+    margin-left: 50px
 
     &:first-child
       margin-left: 0
 
-  figcaption
-    font-size: 1.8em
+  @each $contact in mail, phone
+    .#{$contact}
+      background: url("../images/i-#{$contact}.png") left center no-repeat
 
-figure
-  width: 32%
-  position: relative
-  overflow: hidden
-
-  &.wide
-    width: 50%
-    margin: 50px auto
-
-  img
-    +fleximage
-
-figcaption
+footer
   width: 100%
-  bottom: 0
+  top: 0
+  left: 0
   position: absolute
-  padding: 3px 10px
-  font-size: 0.85em
+  font-size: 1.2em
+  text-align: center
   font-style: italic
-  background: $alertColor
-  color: #fff
+  background: rgba(0, 0, 0, 0.7)
 
-blockquote
-  width: 38%
-  float: left
-  margin: 0 10px 10px 0
-  font-family: $boldFont
-  font-weight: bold
-  font-size: 1.1em
-  line-height: 1.45em
-  +text-shadow(rgba(0, 0, 0, 0.2) 1px 1px 1px)
+  a
+    color: rgba(255, 255, 255, 0.5)
 
-  &.right
-    float: right
-    text-align: right
+  p
+    padding: 10px 0
+    color: #fff
 
-  &.full
-    width: 100%
-    float: none
-    text-align: right
-    font-size: 1.5333em
-    font-style: italic
-    font-weight: normal
-
-    span
-      display: block
-      margin-top: 10px
-      font-size: 0.8em
-
-.letter
-  display: inline-block
-  margin: 15px 6px 0 0
-  float: left
-  font-size: 3.2em
-  font-weight: 500
-
-.note
-  font-family: $boldFont
-  font-style: italic
-
-  em
-    font-weight: bold
-    color: $alertColor
-
-.border
+.swirl
   width: 100%
   position: fixed
-  border-bottom: solid 10px rgba(0, 0, 0, 0.2)
+  border-bottom: solid 10px #a3a3a3
 
   &.top
     top: 0
@@ -203,68 +148,9 @@ blockquote
     bottom: 0
     top: 0
     margin: 10px 0
-    background: rgba(0, 0, 0, 0.2)
+    background: #a3a3a3
 
   &.right
     right: 0
   &.left
     left: 0
-
-footer
-  padding: 35px 0 25px 495px
-  position: relative
-  font-size: 1.5em
-
-  .wrap
-    max-width: 700px
-
-  p
-    text-align: right
-
-    &.small
-      font-size: 0.95em
-      margin-top: 10px
-      opacity: 0.7
-
-.chameleon-tree
-  width: 672px
-  height: 364px
-  bottom: 10px
-  left: 0
-  position: absolute
-  z-index: -1
-
-#slider
-  width: 320px
-  height: 270px
-  margin: 0 auto
-
-.share
-  min-width: 340px
-  display: inline-block
-  margin: 0 0 30px 80px
-  padding: 10px 15px 9px 15px
-  text-align: left
-  +border-radius(5px)
-  background: rgba(255, 255, 255, 0.8)
-
-  > p
-    margin: 0
-    float: left
-    text-align: left
-    line-height: 31px
-
-  > div
-    float: left
-    margin: 5px 0 0 10px
-
-    &.last-child
-      width: 85px
-      margin: 0 0 0 10px
-
-/* Foresight */
-.fs-img
-  font-family: 'image-set( url({src}) 1x, url({directory}{filename}_2x.{ext}) 2x)'
-  display: none
-
-@import media
